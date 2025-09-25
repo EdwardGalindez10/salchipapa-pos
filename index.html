@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - La Casa de la Salchipapa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icon.png">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="logo-section">
+            <img src="assets/logo.png" alt="La Casa de la Salchipapa" class="logo">
+            <h1>La Casa de la Salchipapa</h1>
+            <p>El Mango, Argelia Cauca</p>
+        </div>
+        
+        <div class="welcome-message">
+            <p>"Pedir una salchipapa siempre será una buena idea. ¿Cuál es tu orden?"</p>
+        </div>
+        
+        <form id="loginForm" class="login-form">
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" required placeholder="Ingresa tu usuario">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" required placeholder="Ingresa tu contraseña">
+            </div>
+            
+            <div class="form-group">
+                <label for="modulo">¿A qué módulo deseas ingresar?</label>
+                <select id="modulo" required class="modulo-select">
+                    <option value="">Selecciona un módulo</option>
+                    <option value="mesero">👨‍💼 Servicio de Mesero</option>
+                    <option value="cocina">👨‍🍳 Área de Cocina</option>
+                    <option value="caja">💰 Caja y Administración</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn-primary">Ingresar al Sistema</button>
+        </form>
+        
+        <div class="login-info">
+            <div class="info-card mesero-info">
+                <h4>👨‍💼 Mesero</h4>
+                <p>Tomar pedidos, gestionar mesas</p>
+                <small>Usuario: mesero1 | Contraseña: 1234</small>
+            </div>
+            
+            <div class="info-card cocina-info">
+                <h4>👨‍🍳 Cocina</h4>
+                <p>Ver y preparar pedidos</p>
+                <small>Usuario: admin | Contraseña: admin</small>
+            </div>
+            
+            <div class="info-card caja-info">
+                <h4>💰 Caja</h4>
+                <p>Gestionar cuentas y reportes</p>
+                <small>Usuario: admin | Contraseña: admin</small>
+            </div>
+        </div>
+        
+        <div class="login-footer">
+            <p>Sistema de Comandas Digitales v1.0</p>
+            <p>© 2024 La Casa de la Salchipapa</p>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

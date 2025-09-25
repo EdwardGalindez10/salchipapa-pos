@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocina - La Casa de la Salchipapa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+       <div class="app-header">
+    <div class="header-left">
+        <h1>🏠 Cocina - La Casa de la Salchipapa</h1>
+        <span class="subtitle">Argelia, Cauca</span>
+    </div>
+    <div class="header-info">
+        <span id="hora-actual" class="hora"></span>
+        <button class="btn-refresh" onclick="cargarPedidosCocina()">🔄 Actualizar</button>
+    </div>
+    <div class="user-info">
+        <span id="userInfo"></span>
+        <button class="btn-cambiar-modulo" id="cambiarModuloBtn" style="display: none;">🔀 Cambiar Módulo</button>
+        <button class="btn-logout" onclick="logout()">🚪 Cerrar Sesión</button>
+    </div>
+</div>
+    
+    <!-- Estadísticas rápidas -->
+    <div class="estadisticas-cocina">
+        <div class="estadistica-item pendiente">
+            <span class="estadistica-numero" id="contador-pendientes">0</span>
+            <span class="estadistica-label">PENDIENTES</span>
+        </div>
+        <div class="estadistica-item preparacion">
+            <span class="estadistica-numero" id="contador-preparacion">0</span>
+            <span class="estadistica-label">EN PREPARACIÓN</span>
+        </div>
+        <div class="estadistica-item listo">
+            <span class="estadistica-numero" id="contador-listos">0</span>
+            <span class="estadistica-label">LISTOS</span>
+        </div>
+        <div class="estadistica-item total">
+            <span class="estadistica-numero" id="contador-total">0</span>
+            <span class="estadistica-label">TOTAL ACTIVOS</span>
+        </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filtros-container">
+        <div class="filtros-cocina">
+            <button class="filtro-btn active" onclick="filtrarPedidos('todos')">📋 Todos los Pedidos</button>
+            <button class="filtro-btn" onclick="filtrarPedidos('pendiente')">⏳ Pendientes</button>
+            <button class="filtro-btn" onclick="filtrarPedidos('preparacion')">👨‍🍳 En Preparación</button>
+            <button class="filtro-btn" onclick="filtrarPedidos('listo')">✅ Listos</button>
+        </div>
+        <div class="busqueda-cocina">
+            <input type="text" id="buscar-pedido" placeholder="🔍 Buscar por mesa o producto..." onkeyup="buscarPedidos()">
+        </div>
+    </div>
+
+    <!-- Lista de pedidos -->
+    <div class="pedidos-container">
+        <div class="pedidos-cocina" id="pedidos-cocina">
+            <!-- Los pedidos se cargan dinámicamente aquí -->
+            <div class="loading">Cargando pedidos...</div>
+        </div>
+    </div>
+
+    <!-- Modal para ver detalles completos -->
+    <div id="modal-detalles" class="modal">
+        <div class="modal-content detalles-modal">
+            <div class="modal-header">
+                <h3>📄 Detalles Completo del Pedido</h3>
+                <button class="btn-cerrar" onclick="cerrarModalDetalles()">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="detalles-content">
+                    <!-- Contenido dinámico -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secundario" onclick="imprimirPedido()">🖨️ Imprimir</button>
+                <button class="btn-primary" onclick="cerrarModalDetalles()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/cocina.js"></script>
+</body>
+</html>

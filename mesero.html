@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesero - La Casa de la Salchipapa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+    <div class="app-header">
+        <div class="header-left">
+            <h1>La Casa de la Salchipapa</h1>
+            <span id="mesa-seleccionada-info" class="mesa-info">Selecciona una mesa</span>
+        </div>
+       <div class="user-info">
+    <span id="userInfo"></span>
+    <button class="btn-cambiar-modulo" id="cambiarModuloBtn" onclick="cambiarModulo('cocina')" style="display: none;">
+        🔀 Cambiar a Cocina
+    </button>
+    <button class="btn-logout" onclick="logout()">🚪 Cerrar Sesión</button>
+</div>
+
+    </div>
+    
+    <div class="nav-tabs">
+        <div class="nav-tab active" data-target="mesas-section">Mesas</div>
+        <div class="nav-tab" data-target="menu-section">Menú</div>
+        <div class="nav-tab" data-target="pedido-section">Pedido Actual</div>
+    </div>
+    
+    <div class="container">
+        <!-- Sección de Mesas -->
+        <div id="mesas-section" class="section active">
+            <h2>Gestión de Mesas</h2>
+            <div class="mesas-grid" id="mesas-grid">
+                <!-- Las mesas se cargan dinámicamente -->
+            </div>
+        </div>
+        
+        <!-- Sección de Menú -->
+        <div id="menu-section" class="section">
+            <h2>Menú del Restaurante</h2>
+            <div class="categorias-menu" id="categorias-menu">
+                <!-- Las categorías se cargan dinámicamente -->
+            </div>
+            <div class="productos-grid" id="productos-grid">
+                <!-- Los productos se cargan dinámicamente -->
+            </div>
+        </div>
+        
+        <!-- Sección de Pedido Actual -->
+        <div id="pedido-section" class="section">
+            <h2>Pedido Actual</h2>
+            <div class="pedido-container">
+                <div class="pedido-header">
+                    <h3>Items del Pedido</h3>
+                    <span class="badge" id="contador-items">0 items</span>
+                </div>
+                <div class="pedido-items" id="pedido-items">
+                    <p class="empty-state">No hay items en el pedido</p>
+                </div>
+                <div class="pedido-total">
+                    Total: <span id="pedido-total">$0</span>
+                </div>
+                <div class="acciones-pedido">
+                    <button class="btn-secundario" id="btnLimpiarPedido">Limpiar Pedido</button>
+                    <button class="btn-primary" id="btnEnviarCocina">Enviar a Cocina</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de Personalización -->
+    <div id="modal-personalizacion" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Personalizar Producto</h3>
+                <button class="btn-cerrar" id="btn-cerrar-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="adiciones-section">
+                    <h4>Adiciones (+$)</h4>
+                    <div class="adiciones-list" id="adiciones-list">
+                        <!-- Las adiciones se cargan dinámicamente -->
+                    </div>
+                </div>
+                <div class="notas-section">
+                    <h4>Notas Especiales</h4>
+                    <textarea id="notas-pedido" class="notas-pedido" placeholder="Ej: Sin piña, extra queso, etc."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secundario" id="btn-cancelar">Cancelar</button>
+                <button class="btn-primary" id="btn-agregar-pedido">Agregar al Pedido</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/mesero.js"></script>
+</body>
+</html>
